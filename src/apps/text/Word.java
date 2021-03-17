@@ -11,9 +11,15 @@ public class Word
 		sign = "";
 	}
 	
-	public Word(String sign, char... letters)
+	public Word(String letters)
 	{
-		this.letters = new String(letters);
+		this.letters = letters;
+		sign = "";
+	}
+	
+	public Word(String letters, String sign)
+	{
+		this.letters = letters;
 		this.sign = sign;
 	}
 	

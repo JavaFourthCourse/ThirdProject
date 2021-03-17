@@ -23,6 +23,11 @@ public class Text
 		this.sentences.addAll(Arrays.asList(sentences));
 	}
 	
+	public void setHeading(String heading)
+	{
+		this.heading = heading;
+	}
+	
 	public void addSentence(Sentence sentence)
 	{
 		sentences.add(sentence);
@@ -43,10 +48,17 @@ public class Text
 		return sentences.get(index);
 	}
 	
+	public String getHeading()
+	{
+		return heading;
+	}
+	
 	@Override
 	public String toString()
 	{
-		StringBuilder builder = new StringBuilder();
+		StringBuilder builder = new StringBuilder(heading);
+		
+		builder.append('\n');
 		
 		for (Sentence sentence : sentences)
 		{

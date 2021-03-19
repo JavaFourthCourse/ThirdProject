@@ -99,4 +99,44 @@ public abstract class File
 	}
 	
 	public abstract String toString();
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		
+		File file = (File) o;
+		
+		if (!name.equals(file.name))
+		{
+			return false;
+		}
+		if (!path.equals(file.path))
+		{
+			return false;
+		}
+		if (!extension.equals(file.extension))
+		{
+			return false;
+		}
+		
+		return systemRepresentation.equals(file.systemRepresentation);
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		int result = name.hashCode();
+		result = 31 * result + path.hashCode();
+		result = 31 * result + extension.hashCode();
+		result = 31 * result + systemRepresentation.hashCode();
+		return result;
+	}
 }

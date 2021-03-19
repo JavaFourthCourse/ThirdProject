@@ -49,4 +49,34 @@ public class Directory
 	{
 		return path.isEmpty() ? name : path + '\\' + name;
 	}
+	
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		
+		Directory directory = (Directory) o;
+		
+		if (!path.equals(directory.path))
+		{
+			return false;
+		}
+		
+		return name.equals(directory.name);
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		int result = path.hashCode();
+		result = 31 * result + name.hashCode();
+		return result;
+	}
 }
